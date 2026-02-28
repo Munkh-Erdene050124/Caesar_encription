@@ -20,6 +20,9 @@ Shifts alphabetic characters while leaving spaces and punctuation (like !, ,, .)
 caesar_decryption(text, shift):
 Reverses the encryption process by applying a negative shift.
 
+brute_force_decryption(encrypted_text):
+Finds all the possible matches using brute force
+
 Usage
 To use this script, ensure you have Python 3.x installed.
 
