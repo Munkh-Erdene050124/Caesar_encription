@@ -2,41 +2,54 @@ def caesar_encryption(text, shift):
     result = ""
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     #Turn texts to uppercase and loop through each character
+    #Бүх үсгийг том үсэг болгоно.
     for char in text.upper():
         if char in alphabet:
             #Find the index of the character
+            #Үсгийн индексийг олно.
             char_index = alphabet.find(char)
             #Calculate new index with the shift and wrap around using modulo
+            #Шинэ индексийг тооцоолно. Шифрлэх үед үсэг 26-оор хуваагдаж эргэх болно.
             new_index = (char_index + shift) % 26
             #Append the encrypted character to the result
+            #Шифрлэгдсэн үсгийг үр дүнгийн хувьсагчид нэмнэ.
             result += alphabet[new_index]
         else:
             #If it's not an alphabetic character, keep it unchanged
+            #Хэрэв үсэг биш тэмдэг бол өөрчлөлгүй хадгална.
             result += char
     #result is the encrypted text
+    #result нь шифрлэгдсэн текст болно.
     return result
 
 def caesar_decryption(text, shift):
     result = ""
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     #Turn texts to uppercase and loop through each character
+    #Бүх үсгийг том үсэг болгоно.
     for char in text.upper():
         if char in alphabet:
             #Find the index of the character
+            #Үсгийн индексийг олно.
             char_index = alphabet.find(char)
             #Calculate new index with the negative shift and wrap around using modulo
+            #Шинэ индексийг тооцоолно. Дешифрлэх үед үсэг 26-оор хуваагдаж эргэх болно.
             new_index = (char_index - shift) % 26
             #Append the decrypted character to the result
+            #Дешифрлэгдсэн үсгийг үр дүнгийн хувьсагчид нэмнэ.
             result += alphabet[new_index]
         else:
             #If it's not an alphabetic character, keep it unchanged
+            #Хэрэв үсэг биш тэмдэг бол өөрчлөлгүй хадгална.
             result += char
     #result is the decrypted text
+    #result нь дешифрлэгдсэн текст болно.
     return result
 
 def brute_force_decryption(encrypted_text):
     print("\nBrute Force Decryption Attempts:\n")
     # This function will try all possible shifts (1-25) to decrypt the text
+    # Энэ функц нь бүх боломжит шифрүүдийг (1-25) туршиж текстийг дешифрлэх болно.
     for shift in range(1, 26):
         decrypted_text = caesar_decryption(encrypted_text, shift)
         print(f"Shift: {shift}, Decrypted Text: {decrypted_text}")
@@ -44,6 +57,7 @@ def brute_force_decryption(encrypted_text):
 
 
 # Example usage
+# Жишээ хэрэглээ
 if __name__ == "__main__":
     original_text = "Hello, World!"
     shift_value = 3
